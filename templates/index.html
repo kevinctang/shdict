@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>華吳辭典</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts for Noto Serif TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 100px;
+        }
+        .title-font {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 800;  /* ExtraBold weight */
+            font-size: 64px;    /* Larger font size for 華吳辭典 */
+        }
+        .subheading-font {
+            font-family: 'Noto Serif TC', serif;  /* Same font for subheading */
+            font-weight: 400;  /* Regular weight for subheading */
+            font-size: 24px;   /* Normal font size for subheading */
+        }
+        .form-control {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        .btn {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="title-font mb-3">華吳辭典</h1>  <!-- Larger font for the main title -->
+        <h2 class="subheading-font mb-5">Mandarin-Shanghainese Dictionary</h2> <!-- Same font, normal size -->
+        <form action="/search" method="get">
+            <input type="text" class="form-control" name="word" placeholder="輸入華語（普通話）文字" required>
+            <button type="submit" class="btn btn-primary">搜尋</button>
+        </form>
+    </div>
+</body>
+</html>

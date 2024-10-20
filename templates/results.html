@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"{{ word }}" - 華吳辭典</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts for Noto Serif TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .results-list {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .no-results {
+            color: #dc3545;
+        }
+        a {
+            margin-top: 20px;
+        }
+        /* Apply Noto Serif TC font to both headings */
+        .noto-font {
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 800;
+        }
+        .small-heading {
+            font-size: 1.25rem;
+            color: #6c757d;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <!-- Apply the same font to both "華吳辭典" and "word" -->
+        <h1 class="noto-font mb-5">“{{ word }}”</h1> <!-- Same font as 華吳辭典 but size remains unchanged -->
+        
+        <div class="results-list">
+            {% if results %}
+                <ul class="list-group">
+                    {% for result in results %}
+                        <li class="list-group-item">
+                            <strong>{{ result['word'] }}:</strong> {{ result['definition'] }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="no-results">暫無詞條</p>
+            {% endif %}
+        </div>
+
+        {% if more_results %}
+            <h5 class="small-heading">更多結果</h5>
+            <div class="results-list">
+                <ul class="list-group">
+                    {% for result in more_results %}
+                        <li class="list-group-item">
+                            <strong>{{ result['word'] }}:</strong> {{ result['definition'] }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <a href="/" class="btn btn-secondary">返回</a>
+    </div>
+</body>
+</html>
